@@ -470,7 +470,7 @@ extern NSBundle *uYouPlusBundle();
         LOC(@"HIDE_FULLSCREEN_ACTION_BUTTONS_DESC"), 
         @"hideFullscreenActions_enabled",
         ({
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
                 // Show alert if the option is not compatible with iPad
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"iPad Compatibility Issue" message:@"This option is only compatible with iPhone devices." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -1340,6 +1340,7 @@ extern NSBundle *uYouPlusBundle();
     # pragma mark - Miscellaneous
     SECTION_HEADER(LOC(@"MISCELLANEOUS"));
 
+    SWITCH_ITEM2(LOC(@"YouTube Sign-In Patch"), LOC(@"When enabled, it will allow you to sign in on the YouTube App when sideloaded.\nUnwanted Side Effects: Most Icons in the app will be Invisible & Notifications might not work."), @"googleSignInPatch_enabled");
     SWITCH_ITEM2(LOC(@"ADBLOCK_WORKAROUND_LITE"), LOC(@"ADBLOCK_WORKAROUND_LITE_DESC"), @"uYouAdBlockingWorkaroundLite_enabled");
     SWITCH_ITEM2(LOC(@"ADBLOCK_WORKAROUND"), LOC(@"ADBLOCK_WORKAROUND_DESC"), @"uYouAdBlockingWorkaround_enabled");
     SWITCH_ITEM3(
